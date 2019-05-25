@@ -11,12 +11,8 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            # return redirect(request.build_absolute_uri("/q"))
-            return HttpResponseRedirect(reverse('qa:index'))
+            return HttpResponseRedirect(reverse('login'))
     else: 
         form = UserCreationForm()
         
     return render(request, 'user/register.html', {'form': form})
-
-def index(request):
-    return render(request, 'user/index.html')
