@@ -1,0 +1,8 @@
+<h1>Latest 5 Questions</h1>
+<ul>
+    {% for question in latest_questions_list%}
+    <li>
+        {{ question.question_title }}
+    </li>
+    {% endfor %}
+</ul>
