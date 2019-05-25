@@ -1,1 +1,27 @@
-<h1>Hello world</h1>
+{% extends "home/base.html"%}
+{% block title %} Online Coach | Home {% endblock %}
+
+{% block content%}
+<ul>
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
+    {% else %}
+        <li>
+            <a href="login">Login</a>
+        </li>
+        <li>
+            <a href="register">Register</a>
+        </li>
+    {% endif %}
+</ul>
+
+<h1>Latest Questions</h1>
+<ul>
+    {% for question in latest_questions_list%}
+    <li>
+        <a href = "q/{{question.id}}">{{question.question_title}}</a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
