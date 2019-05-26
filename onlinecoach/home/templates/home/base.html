@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
     <title>{% block title %}Online Coach{% endblock %}</title>
 </head>
 <body>
@@ -14,33 +15,40 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="mx-auto d-flex" style="width: 60% !important">
+            <!-- Website Icon -->
             <a class="navbar-brand" href="#"><img src="https://cdn4.iconfinder.com/data/icons/new-google-logo-2015/400/new-google-favicon-512.png" width="30vw" height="30vw" alt=""></a>
+            
+            <!-- Search Bar -->
             <div id="dropdown-menu" class="input-group-btn search-panel" style="position:relative !important">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                        <span id="search_concept">Sport</span> <span class="caret"></span>
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="dropdown-button" style="margin-right:-5px !important">
+                        <span id="search_concept">Soccer</span> <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="">Football</a></li>
-                        <li><a href="">Basketball</a></li>
-                        <li><a href="">Ice Hockey</a></li>
-                        <li><a href="">Baseball</a></li>
-                        <li><a href="">Soccer</a></li>
-                        <li><a href="">Martial Arts</a></li>
-                        <li><a href="">Golf</a></li>
-                        <li><a href="">Tennis</a></li>
-                        <li><a href="">Swimming</a></li>
-                        <li><a href="">Track</a></li>
-                        <li><a href="">Volleyball</a></li>
-                        <li><a href="">Gymnastics</a></li>
-                        <li><a href="">Bodybuilding</a></li>
+                        <li><a href="#">Football</a></li>
+                        <li><a href="#">Basketball</a></li>
+                        <li><a href="#">Ice Hockey</a></li>
+                        <li><a href="#">Baseball</a></li>
+                        <li><a href="#">Soccer</a></li>
+                        <li><a href="#">Martial Arts</a></li>
+                        <li><a href="#">Golf</a></li>
+                        <li><a href="#">Tennis</a></li>
+                        <li><a href="#">Swimming</a></li>
+                        <li><a href="#">Track</a></li>
+                        <li><a href="#">Volleyball</a></li>
+                        <li><a href="#">Gymnastics</a></li>
+                        <li><a href="#">Bodybuilding</a></li>
                     </ul>
                 </div>
                 <input type="hidden" name="search_param" value="all" id="search_param">         
-                <input type="text" class="form-control" name="x" placeholder="Search term...">
+                <input type="text" class="form-control" name="search-input" placeholder="What do you need help with?">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
         </div>
+        <!-- Menu Icon -->
+        <button type="button" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-menu-hamburger"></span> Menu-hamburger
+        </button>
     </nav>
     {% block content %}
     {% endblock %}
@@ -51,8 +59,8 @@
     <script>
         $(function(){
             $("#dropdown-menu li a").click(function(){
-                $(".btn:first-child").text($(this).text());
-                $(".btn:first-child").val($(this).text());
+                $("#dropdown-button").text($(this).text());
+                $("#dropdown-button").val($(this).text());
             });
         });
     </script>
