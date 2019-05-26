@@ -37,7 +37,7 @@
         <h3 class="mb-1 lead">{{ question.question_title }}</h3>
         <small>{{question.pub_date}}</small>
         </div>
-        <p class="mb-1">{{question.question_text|truncatewords:12}}</p>
+        <p class="mb-1">{{question.question_text|safe|truncatewords:12}}</p>
         <small class="float-right">Created by {{question.author}}</small>
     </a>
     {% endfor %}

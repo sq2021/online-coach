@@ -9,3 +9,6 @@ def index(request):
         'latest_questions_list': questions
     }
     return render(request, 'home/index.html', context)
+
+def about(request):
+    return render(request, 'home/about.html')
