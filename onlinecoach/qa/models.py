@@ -1,3 +1,4 @@
+from django.shortcuts import reverse
 from django.db import models
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
@@ -28,6 +29,9 @@ class Question(models.Model):
     
     def __str__(self):
         return self.question_text
+
+    def get_absolute_url(self):
+        return reverse('home-index')
 
     class Meta:
         ordering = ['-pub_date'] 

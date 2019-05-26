@@ -1,9 +1,16 @@
 {% extends 'home/base.html' %}
 {% block content %}
-<h1>{{question.question_title}}</h1>
+<h1>{{question.question_title}} <span class="badge badge-secondary">{{question.category}}</span>
+    {% if question.author == user%}
+    <a class="ml-auto" href="{% url 'qa:Question Update' question.id%}"><i class="color-blue fas fa-pencil-alt"></i></a>
+    {%endif%}
+</h1>
 <br>
 <!-- <p><strong>{{author}}</strong></p> -->
-<p class="p-3" style="background-color: rgba(226, 203, 118, 0.3)">{{question.question_text}}</p>
+<div class="pt-2 pl-2" style="background-color: rgba(226, 203, 118, 0.3)">
+    <p>{{question.question_text |safe}}</p>
+</div>
+{% if question.answer_set.all > 0 %}
 {% for answer in question.answer_set.all %}
     <div class="media">
         <img width="64" height="64" src="{{ answer.author.profile.avatar.url }}" alt=""/>
@@ -13,6 +20,9 @@
         </div>
     </div>
 {% endfor %}
+{%else%}
+    <p class="lead">No comments</p>
+{%endif%}
 
 <form class="pt-5" method="post">
     {% csrf_token %}
