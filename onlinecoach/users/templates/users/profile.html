@@ -2,9 +2,20 @@
 {% block title %}Online Coaches | Profile{% endblock%}
 {% block content %}
 <div class="container">
-    <h3>{{ user.username }}</h3>
-    <p>{{ user.id }}</p>
-    <p>{{ user.email }}</p>
-    <p>{{ user.last_login }}</p>
+    <div class="text-center">
+        <img class="rounded-circle" src="{{ user.profile.avatar.url }}" alt="{{user.username}}" width="200" height="200">
+        <h3 class="text-center text-uppercase mt-2">{{ user.username }}</h3>
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">Email: <span class="float-right">{{ user.email }}</span></li>
+        <li class="list-group-item">Total Questions: <span class="float-right">{{ user.profile.total_questions }}</span></li>
+        <li class="list-group-item">Total Answers: <span class="float-right">{{ user.profile.total_answers }}</span></li>
+        <li class="list-group-item">Reputation Count: <span class="float-right">{{ user.profile.reputation_count }}</span></li>
+        <li class="list-group-item">Last Login: <span class="float-right">{{ user.last_login }}</span></li>
+    </ul>
+    <div class="text-center">
+        <button target="{% url 'logout' %}" class="btn btn-danger mt-5">Log Out</button>
+
+    </div>
 </div>
     {% endblock %}

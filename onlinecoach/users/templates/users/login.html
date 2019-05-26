@@ -1,6 +1,27 @@
+{% extends 'home/base.html'%}
+{% load crispy_forms_tags %}
+{% block css%}
+<style>
+  .container {
+    margin: 0 auto;
+    width:500px;
+  } 
+  
+  .container p {
+      width:100%;
+      text-shadow:1px;
+  }
+
+  .container p input {
+    width:150%;
+  }
+</style>
+{% endblock %}
+{% block content %}
+<h1>Online Coach</h1>
 <form method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Login In</button>
-    
-    </form>
+    {% csrf_token %}
+    {{form|crispy}}
+    <button class="btn btn-primary float-right" type="submit"  >Log In</button>
+</form>
+{% endblock %}
