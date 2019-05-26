@@ -9,7 +9,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '*%q-vfrqgh^*85hi-9r($c-&=2)2-g$(g!rvw=gh4c&#^1oz#*'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -19,15 +18,15 @@ ALLOWED_HOSTS = ['127.0.0.1', '10.254.186.38', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home.apps.HomeConfig',
-    'django.contrib.admin',
-    'user',
-    'qa'
+    'qa.apps.QaConfig',
+    'users.apps.UsersConfig',
+    'home.apps.HomeConfig'
 ]
 
 MIDDLEWARE = [
@@ -67,7 +66,7 @@ WSGI_APPLICATION = 'onlinecoach.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'database.sqlite3'),
     }
 }
 
@@ -108,7 +107,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-AUTH_USER_MODEL = 'user.User'
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'home-index'
