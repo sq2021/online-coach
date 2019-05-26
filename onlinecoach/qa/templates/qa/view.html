@@ -1,11 +1,22 @@
+{% extends 'home/base.html' %}
+{% block content %}
 <h1>{{question.question_title}}</h1>
+<br>
 <!-- <p><strong>{{author}}</strong></p> -->
-<p>{{question.question_text}}</p>
-<ul>
-    {% for answer in question.answer_set.all %}
-        <li>
-            {{answer.answer_text}}
-        </li>
-    {% endfor %}
-</ul>
-<h5>Attachments</h5>
+<p class="p-3" style="background-color: rgba(226, 203, 118, 0.3)">{{question.question_text}}</p>
+{% for answer in question.answer_set.all %}
+    <div class="media">
+        <img width="64" height="64" src="{{ answer.author.profile.avatar.url }}" alt=""/>
+        <div class="media-body ml-4">
+            <h4 class="mt-0">{{answer.author.username}}</h4>
+            {{answer.answer_text|safe}}
+        </div>
+    </div>
+{% endfor %}
+
+<form class="pt-5" method="post">
+    {% csrf_token %}
+    {{form}}
+    <button class="btn btn-primary float-right mt-2" type="submit">Submit</button>
+</form>
+{% endblock %}

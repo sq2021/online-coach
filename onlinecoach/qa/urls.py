@@ -6,5 +6,6 @@ app_name = 'qa'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('<int:question_id>', views.view, name='question')
+    path('<int:question_id>', views.view, name='question'),
+    path('new', views.new, name='Question Creation')
 ]
