@@ -6,7 +6,7 @@ There will be variety of sports categories such as volleyball, soccer, baseball 
 Every correct suggestion will +1 point. When a user reach a specific goal of points (500 pts) , that user will get verify as a trusted trainer in the organization (an instagram check-like verified). 
 
 ### Video demonstration
-[demo](https://github.com/TopKeingt/hordes.io-bots/blob/master/resources/demo.mp4)
+[demo](https://github.com/sq2021/online-coach/blob/master/resources/demo.mp4)
 
 Project’s frontend workflow: https://creately.com/diagram/jw29dc2a1
 
