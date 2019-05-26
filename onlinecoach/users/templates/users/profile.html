@@ -1,0 +1,10 @@
+{% extends 'home/base.html'%}
+{% block title %}Online Coaches | Profile{% endblock%}
+{% block content %}
+<div class="container">
+    <h3>{{ user.username }}</h3>
+    <p>{{ user.id }}</p>
+    <p>{{ user.email }}</p>
+    <p>{{ user.last_login }}</p>
+</div>
+    {% endblock %}
