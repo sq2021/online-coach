@@ -2,27 +2,34 @@
 {% block title %} Online Coach | Home {% endblock %}
 
 {% block content%}
-<ul>
-    {% if user.is_authenticated %}
-        <li><a href="{% url 'logout' %}">Log Out</a></li>
-        <li><a href="{% url 'profile' %}">Profile</a></li>
-    {% else %}
-        <li>
-            <a href="login">Login</a>
-        </li>
-        <li>
-            <a href="register">Register</a>
-        </li>
-    {% endif %}
-</ul>
-
+<div class="jumbotron">
+    <!-- <h1>Navbar example</h1>
+    <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
+    <a class="btn btn-lg btn-primary" href="/docs/4.3/components/navbar/" role="button">View navbar docs »</a> -->
+    <div class="row">
+        <div class="col-6">
+            <h3>Find best answers to solve your problems</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia perspiciatis magni assumenda doloribus quisquam deleniti rerum aliquam. Beatae cum molestias ullam. Ea saepe iusto a tenetur beatae quam voluptatibus minus?</p>
+        </div>
+        <div class="col-6">
+            <form action="/register" method="post">
+            
+            </form>
+        </div>
+    </div>
+</div>
 <h1>Latest Questions</h1>
-<ul>
+<div class="list-group">
     {% for question in latest_questions_list%}
-    <li>
-        <a href = "q/{{question.id}}">{{question.question_title}}</a>
-    </li>
+    <a href="q/{{question.id}}" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1 lead">{{ question.question_title }}</h5>
+        <small>{{question.pub_date}}</small>
+        </div>
+        <p class="mb-1">{{question.question_text|truncatewords:12}}</p>
+        <small>Created by {{question.author}}</small>
+    </a>
     {% endfor %}
-</ul>
+    </div>
 
 {% endblock %}
