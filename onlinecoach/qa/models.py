@@ -1,15 +1,13 @@
 from django.db import models
-# from django.contrib.auth.models import User
-from django.conf import settings
-from user.models import User
-# from users.models import User
+from django.contrib.auth.models import User
+from datetime import datetime
 
 # Create your models here.
 class Question(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     question_text = models.CharField(max_length=500)
     question_title = models.CharField(max_length=100)
-    pub_date = models.DateTimeField('date published', auto_now_add=True)
+    pub_date = models.DateTimeField('date published', default=datetime.now)
     is_solved = models.BooleanField('is solved', default=False)
     category = models.IntegerField(default=1)
     
