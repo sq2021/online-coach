@@ -2,32 +2,43 @@
 {% block title %} Online Coach | Home {% endblock %}
 
 {% block content%}
-<div class="jumbotron">
+<div class="jumbotron shadow">
     <!-- <h1>Navbar example</h1>
     <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
     <a class="btn btn-lg btn-primary" href="/docs/4.3/components/navbar/" role="button">View navbar docs »</a> -->
     <div class="row">
-        <div class="col-6">
+        <div class="col-7">
             <h3>Find best answers to solve your problems</h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia perspiciatis magni assumenda doloribus quisquam deleniti rerum aliquam. Beatae cum molestias ullam. Ea saepe iusto a tenetur beatae quam voluptatibus minus?</p>
         </div>
-        <div class="col-6">
-            <form action="/register" method="post">
-            
-            </form>
+        <div class="col-5">
+            <div class="row text-center">
+                <div class="col-4">
+                    <h1>50</h1>
+                    <p>Users</p>
+                </div>
+                <div class="col-4">
+                    <h1>10</h1>
+                    <p>Questions</p>
+                </div>
+                <div class="col-8">
+                    <h1>40</h1>
+                    <p>Answers</p>
+                </div>
+            </div>  
         </div>
     </div>
 </div>
 <h1>Latest Questions</h1>
 <div class="list-group">
     {% for question in latest_questions_list%}
-    <a href="q/{{question.id}}" class="list-group-item list-group-item-action">
+    <a href="q/{{question.id}}" class="list-group-item list-group-item-action shadow">
         <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1 lead">{{ question.question_title }}</h5>
+        <h3 class="mb-1 lead">{{ question.question_title }}</h3>
         <small>{{question.pub_date}}</small>
         </div>
         <p class="mb-1">{{question.question_text|truncatewords:12}}</p>
-        <small>Created by {{question.author}}</small>
+        <small class="float-right">Created by {{question.author}}</small>
     </a>
     {% endfor %}
     </div>
